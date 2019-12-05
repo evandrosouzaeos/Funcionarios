@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Funcionarios.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Empresas</h2>
+
+<p>
+    @Html.ActionLink("Nova Empresa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Endereço")
+        </th>
+        <th>
+            @Html.DisplayName("Ações")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endereco)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

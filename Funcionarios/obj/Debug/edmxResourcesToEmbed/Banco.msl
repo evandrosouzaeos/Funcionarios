@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="P2ModelStoreContainer" CdmEntityContainer="P2Entities">
+    <EntitySetMapping Name="Atividade">
+      <EntityTypeMapping TypeName="P2Model.Atividade">
+        <MappingFragment StoreEntitySet="Atividade">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="P2Model.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="P2Model.funcionario">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="idade" ColumnName="idade" />
+          <ScalarProperty Name="Empresa_id" ColumnName="Empresa_id" />
+          <ScalarProperty Name="AtividadeId" ColumnName="AtividadeId" />
+          <ScalarProperty Name="Setor_id" ColumnName="Setor_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Setor">
+      <EntityTypeMapping TypeName="P2Model.Setor">
+        <MappingFragment StoreEntitySet="Setor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

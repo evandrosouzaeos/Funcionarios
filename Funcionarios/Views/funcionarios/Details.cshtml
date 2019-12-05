@@ -1,0 +1,66 @@
+﻿@model Funcionarios.funcionario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Funcionário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(" Nome:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Endereço:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Idade:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idade)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Atividade:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atividade.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Empresa:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Setor:")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Setor.nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
