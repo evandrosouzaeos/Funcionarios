@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="P2ModelStoreContainer" CdmEntityContainer="P2Entities">
     <EntitySetMapping Name="Atividade">
-      <EntityTypeMapping TypeName="P2Model.Atividade">
+      <EntityTypeMapping TypeName="IsTypeOf(P2Model.Atividade)">
         <MappingFragment StoreEntitySet="Atividade">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="nome" ColumnName="nome" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Empresa">
-      <EntityTypeMapping TypeName="P2Model.Empresa">
+      <EntityTypeMapping TypeName="IsTypeOf(P2Model.Empresa)">
         <MappingFragment StoreEntitySet="Empresa">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nome" ColumnName="nome" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="funcionario">
-      <EntityTypeMapping TypeName="P2Model.funcionario">
+      <EntityTypeMapping TypeName="IsTypeOf(P2Model.funcionario)">
         <MappingFragment StoreEntitySet="funcionario">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nome" ColumnName="nome" />
@@ -33,7 +33,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Setor">
-      <EntityTypeMapping TypeName="P2Model.Setor">
+      <EntityTypeMapping TypeName="IsTypeOf(P2Model.Setor)">
         <MappingFragment StoreEntitySet="Setor">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nome" ColumnName="nome" />

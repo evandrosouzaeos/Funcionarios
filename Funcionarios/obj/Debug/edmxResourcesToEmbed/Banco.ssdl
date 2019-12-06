@@ -1,28 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="P2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="P2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="P2ModelStoreContainer">
+    <EntitySet Name="Atividade" EntityType="P2Model.Store.Atividade" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empresa" EntityType="P2Model.Store.Empresa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="funcionario" EntityType="P2Model.Store.funcionario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Setor" EntityType="P2Model.Store.Setor" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Atividadefuncionario" Association="P2Model.Store.FK_Atividadefuncionario">
+      <End Role="Atividade" EntitySet="Atividade" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresafuncionario" Association="P2Model.Store.FK_Empresafuncionario">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Setorfuncionario" Association="P2Model.Store.FK_Setorfuncionario">
+      <End Role="Setor" EntitySet="Setor" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Atividade">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="descricao" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="Empresa">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="endereco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="endereco" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="funcionario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="endereco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="endereco" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="idade" Type="int" Nullable="false" />
     <Property Name="Empresa_id" Type="int" Nullable="false" />
     <Property Name="AtividadeId" Type="int" Nullable="false" />
@@ -33,12 +51,12 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="descricao" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <Association Name="FK_Atividadefuncionario">
-    <End Role="Atividade" Type="Self.Atividade" Multiplicity="1" />
-    <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+    <End Role="Atividade" Type="P2Model.Store.Atividade" Multiplicity="1" />
+    <End Role="funcionario" Type="P2Model.Store.funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Atividade">
         <PropertyRef Name="Id" />
@@ -49,8 +67,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Empresafuncionario">
-    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
-    <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+    <End Role="Empresa" Type="P2Model.Store.Empresa" Multiplicity="1" />
+    <End Role="funcionario" Type="P2Model.Store.funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Empresa">
         <PropertyRef Name="id" />
@@ -61,8 +79,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Setorfuncionario">
-    <End Role="Setor" Type="Self.Setor" Multiplicity="1" />
-    <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+    <End Role="Setor" Type="P2Model.Store.Setor" Multiplicity="1" />
+    <End Role="funcionario" Type="P2Model.Store.funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Setor">
         <PropertyRef Name="id" />
@@ -72,22 +90,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="P2ModelStoreContainer">
-    <EntitySet Name="Atividade" EntityType="Self.Atividade" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Setor" EntityType="Self.Setor" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Atividadefuncionario" Association="Self.FK_Atividadefuncionario">
-      <End Role="Atividade" EntitySet="Atividade" />
-      <End Role="funcionario" EntitySet="funcionario" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Empresafuncionario" Association="Self.FK_Empresafuncionario">
-      <End Role="Empresa" EntitySet="Empresa" />
-      <End Role="funcionario" EntitySet="funcionario" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Setorfuncionario" Association="Self.FK_Setorfuncionario">
-      <End Role="Setor" EntitySet="Setor" />
-      <End Role="funcionario" EntitySet="funcionario" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Endereco:")
+            @Html.DisplayName("Endereço:")
         </dt>
 
         <dd>
@@ -65,8 +65,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit", value="Excluir" class="btn btn-danger" /> |
-            @Html.ActionLink("Voltar", "Index")
+            <input type="submit", value="Excluir" class="btn btn-danger" />
+            @Html.ActionLink("Voltar", "Index", new { area = "" }, new { @class = "btn btn-default" })
         </div>
     }
 </div>

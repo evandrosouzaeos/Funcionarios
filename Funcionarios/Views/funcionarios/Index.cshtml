@@ -7,7 +7,7 @@
 <h2>Funcionários</h2>
 
 <p>
-    @Html.ActionLink("Novo Funcionário", "Create")
+    @Html.ActionLink("Cadastrar", "Create", new { area = "" }, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -15,7 +15,7 @@
             @Html.DisplayName("Nome")
         </th>
         <th>
-            @Html.DisplayName("Endereco")
+            @Html.DisplayName("Endereço")
         </th>
         <th>
             @Html.DisplayName("Idade")
@@ -55,9 +55,9 @@
             @Html.DisplayFor(modelItem => item.Atividade.nome)            
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Detalhes", "Details", new { id=item.id }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Excluir", "Delete", new { id=item.id }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

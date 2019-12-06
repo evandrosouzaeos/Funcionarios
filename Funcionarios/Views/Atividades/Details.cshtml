@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Descricao:")
+            @Html.DisplayName("Descrição:")
         </dt>
 
         <dd>
@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Voltar", "Index", new { area = "" }, new { @class = "btn btn-default" })
 </p>
